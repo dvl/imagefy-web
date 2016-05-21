@@ -9,4 +9,4 @@ class FacebookOAuth2Adapter(FacebookOAuth2AdapterBase):
 
 
 class FacebookLogin(SocialLoginView):
-    adapter_class = FacebookOAuth2Adapter
+    adapter_class = FacebookOAuth2AdapterBase

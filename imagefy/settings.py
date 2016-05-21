@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_swagger',
     'rest_auth',
+    'rest_auth.registration',
     # allauth
     'allauth',
     'allauth.account',
@@ -215,7 +216,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'FIELDS': [
             'id',
             'email',
-            'name',
+            # 'name',
             'first_name',
             'last_name',
             'verified',
@@ -227,7 +228,7 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
         'EXCHANGE_TOKEN': True,
         'VERIFIED_EMAIL': False,
-        'VERSION': 'v2.6',
+        'VERSION': 'v2.4',
     },
 }
 
@@ -289,11 +290,11 @@ CORS_ORIGIN_ALLOW_ALL = True
 # rest_framework
 # http://www.django-rest-framework.org/api-guide/settings/
 
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.JSONParser',
-    )
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': (
+#         'rest_framework.renderers.JSONRenderer',
+#     ),
+#     'DEFAULT_PARSER_CLASSES': (
+#         'rest_framework.parsers.JSONParser',
+#     )
+# }
