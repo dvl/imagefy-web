@@ -34,9 +34,6 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
 
 SITE_ID = 1
 
-SECURE_SSL_REDIRECT = True
-
-
 # Application definition
 
 INSTALLED_APPS = [
