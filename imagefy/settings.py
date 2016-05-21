@@ -243,8 +243,6 @@ ACCOUNT_USERNAME_REQUIRED = False
 
 SOCIALACCOUNT_EMAIL_VERIFICATION = False
 
-
-
 # Logging
 # https://docs.djangoproject.com/en/1.9/topics/logging
 
@@ -289,11 +287,18 @@ CORS_ORIGIN_ALLOW_ALL = True
 # rest_framework
 # http://www.django-rest-framework.org/api-guide/settings/
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_RENDERER_CLASSES': (
-#         'rest_framework.renderers.JSONRenderer',
-#     ),
-#     'DEFAULT_PARSER_CLASSES': (
-#         'rest_framework.parsers.JSONParser',
-#     )
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
+}
+
+# Shopify
+# https://help.shopify.com/api/reference
+
+SHOPIFY_BUY_CLIENT_SHOP = "imagefy.myshopify.com"
+SHOPIFY_BUY_CLIENT_API_KEY = "2f1f599bd8ba116edf14399407e99e19"
+SHOPIFY_BUY_CLIENT_CHANNEL = "55729859"
