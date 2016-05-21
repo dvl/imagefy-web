@@ -223,7 +223,7 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
         'EXCHANGE_TOKEN': True,
         'VERIFIED_EMAIL': False,
-        'VERSION': 'v2.4',
+        'VERSION': 'v2.6',
     },
 }
 
