@@ -1,8 +1,8 @@
-from rest_framework import routers
+from rest_framework_extensions import routers
 
 from imagefy.wishes.views import OfferViewSet, WishViewSet
 
+router = routers.ExtendedSimpleRouter()
 
-router = routers.DefaultRouter()
-router.register(r'wishes', WishViewSet)
-router.register(r'offers', OfferViewSet)
+wishes_router = router.register(r'wishes', WishViewSet, base_name='user')
+wishes_router.register(r'offers', OfferViewSet, base_name='wishes-offer', parents_query_lookups=['wish__pk', 'offer'])
