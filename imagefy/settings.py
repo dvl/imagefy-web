@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'storages',
+    'corsheaders',
     # Project
     'imagefy.core',
 ]
