@@ -61,8 +61,10 @@ INSTALLED_APPS = [
     'django_extensions',
     'storages',
     'corsheaders',
+    'mptt',
     # Project
     'imagefy.core',
+    'imagefy.wishes',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -282,3 +284,16 @@ MOMMY_CUSTOM_FIELDS_GEN = {
 # https://github.com/ottoyiu/django-cors-headers
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+# rest_framework
+# http://www.django-rest-framework.org/api-guide/settings/
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
+}
