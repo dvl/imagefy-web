@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^api/v1/registration/', include('rest_auth.registration.urls')),
     url(r'^api/v1/registration/facebook/$', FacebookLogin.as_view(), name='fb_login'),
     url(r'^api/v1/registration/auth-token/', rest_views.obtain_auth_token),
+    url(r'^api/v1/docs/', include('rest_framework_swagger.urls')),
     url(r'^admin/', admin.site.urls),
 ]
