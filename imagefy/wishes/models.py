@@ -59,3 +59,10 @@ class Offer(models.Model):
         to='wish',
         related_name='offers',
     )
+
+    shopify_product_id = models.IntegerField(
+        verbose_name='Shopify Product ID'
+    )
+
+    def __str__(self):
+        return '{}'.format(self.shopify_product_id)
