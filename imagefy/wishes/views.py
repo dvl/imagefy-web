@@ -26,5 +26,5 @@ class OfferViewSet(mixins.NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Offer.objects.all()
     serializer_class = OfferSerializer
 
-    def perform_update(self, serializer):
-        serializer.save()
+    def perform_create(self, serializer):
+        serializer.save(salesman=self.request.user)

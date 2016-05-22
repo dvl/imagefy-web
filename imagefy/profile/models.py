@@ -27,4 +27,4 @@ class Profile(models.Model):
             return None
 
     def get_account_type(self):
-        return self.SALESMAN
+        return self.SALESMAN  # FIX-ME!!11

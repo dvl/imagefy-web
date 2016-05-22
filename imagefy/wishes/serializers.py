@@ -7,7 +7,7 @@ from imagefy.profile.serializers import UserSerializer
 
 
 class OfferSerializer(serializers.ModelSerializer):
-    salesman = UserSerializer()
+    salesman = UserSerializer(read_only=True)
 
     class Meta:
         model = Offer
