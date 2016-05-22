@@ -11,3 +11,4 @@ class OfferInline(admin.StackedInline):
 @admin.register(Wish)
 class WishAdmin(admin.ModelAdmin):
     inlines = (OfferInline,)
+    list_display = ('pk', 'brief', 'budget', 'created_at', 'updated_at')

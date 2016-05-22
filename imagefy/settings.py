@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     # Project
     'imagefy.core',
     'imagefy.profile',
+    'imagefy.sales',
     'imagefy.wishes',
 ]
 
