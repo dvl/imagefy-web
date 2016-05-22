@@ -32,9 +32,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
 
-SITE_ID = 1
-
 # Application definition
+
+SITE_ID = 1
 
 INSTALLED_APPS = [
     'collectfast',
@@ -58,11 +58,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     # 3rd
+    'corsheaders',
     'debug_toolbar',
     'django_extensions',
-    'storages',
-    'corsheaders',
     'mptt',
+    'storages',
+    'taggit',
+    'taggit_serializer',
     # Project
     'imagefy.core',
     'imagefy.wishes',
@@ -113,7 +115,6 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': 'imagefy.core.middleware.show_toolbar'
 }
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -138,7 +139,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -152,7 +152,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # AWS
 # https://boto3.readthedocs.org/en/latest/
 
@@ -165,7 +164,6 @@ AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', 'imagefy')
 AWS_S3_CUSTOM_DOMAIN = config('AWS_S3_CUSTOM_DOMAIN', 's3.amazonaws.com/imagefy')
 
 AWS_PRELOAD_METADATA = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
@@ -277,12 +275,10 @@ MOMMY_CUSTOM_FIELDS_GEN = {
     'autoslug.fields.AutoSlugField': 'model_mommy.generators.gen_text',
 }
 
-
 # CORS
 # https://github.com/ottoyiu/django-cors-headers
 
 CORS_ORIGIN_ALLOW_ALL = True
-
 
 # rest_framework
 # http://www.django-rest-framework.org/api-guide/settings/
@@ -298,6 +294,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
+
+# django-taggit
+# https://django-taggit.readthedocs.io/
+
+TAGGIT_CASE_INSENSITIVE = True
 
 # Shopify
 # https://help.shopify.com/api/reference

@@ -10,6 +10,7 @@ django-mptt==0.8.4
 -e git+https://github.com/Tivix/django-rest-auth.git@3189a5c7a0be6540f8b57642cce71176879205e2#egg=django_rest_auth
 django-rest-swagger==0.3.7
 django-storages-redux==1.3.2
+django-taggit-serializer==0.1.5
 django-taggit==0.18.3
 djangorestframework==3.3.3
 drf-extensions==0.2.8

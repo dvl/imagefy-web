@@ -1,5 +1,8 @@
 from django.contrib.auth import get_user_model
+
 from rest_framework import serializers
+
+from taggit_serializer.serializers import TagListSerializerField, TaggitSerializer
 
 from imagefy.wishes.models import Category, Offer, Wish
 
@@ -13,26 +16,33 @@ class CategorySerializer(serializers.ModelSerializer):
         ]
 
 
-class OfferSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Offer
-        fields = '__all__'
-
-
-class OwnerSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
         fields = [
-            'first_name'
+            'first_name',
         ]
 
 
-class WishSerializer(serializers.ModelSerializer):
+class OfferSerializer(serializers.ModelSerializer):
+    salesman = UserSerializer()
+
+    class Meta:
+        model = Offer
+        fields = [
+            'shopify_product_id',
+            'salesman',
+            'created_at',
+            'updated_at',
+        ]
+
+
+class WishSerializer(TaggitSerializer, serializers.ModelSerializer):
     category = CategorySerializer()
     offers = OfferSerializer(many=True)
-    owner = OwnerSerializer()
+    owner = UserSerializer()
+    tags = TagListSerializerField()
 
     class Meta:
         model = Wish
