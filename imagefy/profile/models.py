@@ -19,3 +19,9 @@ class Profile(models.Model):
         max_length=9,
         choices=TYPE_CHOICES,
     )
+
+    def get_avatar_url(self):
+        try:
+            return self.user.socialaccount_set.all()[0].get_avatar_url()
+        except IndexError:
+            return None

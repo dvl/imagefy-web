@@ -16,10 +16,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         ]
 
     def get_avatar_url(self, obj):
-        try:
-            return obj.user.socialaccount_set.all()[0].get_avatar_url()
-        except IndexError:
-            return None
+        return obj.get_avatar_url()  # ugly hack
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -30,5 +27,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = [
             'first_name',
             'last_name',
+            'email',
             'profile',
         ]
