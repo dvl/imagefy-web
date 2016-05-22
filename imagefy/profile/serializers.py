@@ -6,6 +6,7 @@ from imagefy.profile.models import Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    avatar_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Profile
@@ -14,10 +15,15 @@ class ProfileSerializer(serializers.ModelSerializer):
             'user',
         ]
 
+    def get_avatar_url(self, obj):
+        try:
+            return obj.user.socialaccount_set.all()[0].get_avatar_url()
+        except IndexError:
+            return None
+
 
 class UserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer()
-    profile_picture = serializers.SerializerMethodField()
 
     class Meta:
         model = get_user_model()
@@ -25,11 +31,4 @@ class UserSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'profile',
-            'profile_picture',
         ]
-
-    def get_profile_picture(self, obj):
-        try:
-            return obj.socialaccount_set.all()[0].get_avatar_url()
-        except IndexError:
-            return None
