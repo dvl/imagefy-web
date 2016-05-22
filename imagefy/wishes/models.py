@@ -18,6 +18,12 @@ class Wish(models.Model):
         max_length=140,
     )
 
+    buget = models.DecimalField(
+        verbose_name='Budget',
+        max_digits=8,
+        decimal_places=2,
+    )
+
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
