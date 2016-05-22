@@ -25,6 +25,3 @@ class Profile(models.Model):
             return self.user.socialaccount_set.all()[0].get_avatar_url()
         except IndexError:
             return None
-
-    def get_account_type(self):
-        return self.SALESMAN  # FIX-ME!!11
