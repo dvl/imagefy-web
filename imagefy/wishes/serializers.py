@@ -11,14 +11,19 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = [
+            'name',
+        ]
 
 
 class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = '__all__'
+        fields = [
+            'first_name',
+            'last_name',
+        ]
 
 
 class OfferSerializer(serializers.ModelSerializer):
@@ -26,7 +31,10 @@ class OfferSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Offer
-        fields = '__all__'
+        exclude = [
+            'id',
+            'wish'
+        ]
 
 
 class WishSerializer(TaggitSerializer, serializers.ModelSerializer):
