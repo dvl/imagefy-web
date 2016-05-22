@@ -11,18 +11,14 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = [
-            'name',
-        ]
+        fields = '__all__'
 
 
 class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = [
-            'first_name',
-        ]
+        fields = '__all__'
 
 
 class OfferSerializer(serializers.ModelSerializer):
@@ -30,12 +26,7 @@ class OfferSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Offer
-        fields = [
-            'shopify_product_id',
-            'salesman',
-            'created_at',
-            'updated_at',
-        ]
+        fields = '__all__'
 
 
 class WishSerializer(TaggitSerializer, serializers.ModelSerializer):
