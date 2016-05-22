@@ -33,6 +33,9 @@ class Wish(models.Model):
     class Meta:
         verbose_name_plural = 'Wishes'
 
+    def __str__(self):
+        return '{}'.format(self.brief)
+
 
 class Offer(models.Model):
     wish = models.ForeignKey(

@@ -8,14 +8,10 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
-    replaces = [('wishes', '0001_squashed_0003_remove_wish_tags'), ('wishes', '0002_auto_20160522_1408')]
-
     initial = True
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('taggit', '0002_auto_20150616_2121'),
     ]
 
     operations = [
