@@ -13,10 +13,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterModelOptions(
-            name='category',
-            options={'verbose_name_plural': 'Categories'},
-        ),
-        migrations.AlterModelOptions(
             name='wish',
             options={'verbose_name_plural': 'Wishes'},
         ),
