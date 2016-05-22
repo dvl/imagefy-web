@@ -1,8 +1,6 @@
 from django.conf import settings
 from django.db import models
 
-from taggit.managers import TaggableManager
-
 
 class Wish(models.Model):
     owner = models.ForeignKey(
@@ -31,8 +29,6 @@ class Wish(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True,
     )
-
-    tags = TaggableManager()
 
     class Meta:
         verbose_name_plural = 'Wishes'
