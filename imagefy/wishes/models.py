@@ -14,6 +14,8 @@ class Wish(models.Model):
     brief = models.CharField(
         verbose_name='Brief',
         max_length=140,
+        blank=True,
+        null=True,
     )
 
     buget = models.DecimalField(
