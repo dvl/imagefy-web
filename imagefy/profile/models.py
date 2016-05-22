@@ -27,7 +27,4 @@ class Profile(models.Model):
             return None
 
     def get_account_type(self):
-        try:
-            return self.user.socialaccount_set.all()[0].get_provider()
-        except IndexError:
-            return None
+        return self.SALESMAN
