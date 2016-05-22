@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Wishes
+{% endblock %}
+
+{% block headline %}
+    Wishes
+{% endblock %}
+
+{% block content %}
+    <div class="wish-list">
+        {% for wish in object_list %}
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ wish.created_at|date:"SHORT_DATETIME_FORMAT" }}
+                    </div>
+                    <div class="panel-body">
+                        <img src="{{ wish.photo.url }}" alt="{{ wish.brief }}" class="img-thumbnail">
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <th>Asked by:</th>
+                            <td>{{ wish.owner.get_full_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Budget:</th>
+                            <td>$ {{ wish.budget }}</td>
+                        </tr>
+                        <tr>
+                            <th>Brief:</th>
+                            <td>{{ wish.brief }}</td>
+                        </tr>
+                        <tr>
+                            <th>Offers:</th>
+                            <td>{{ wish.offers.count }}</td>
+                        </tr>
+                    </table>
+                    <div class="panel-footer">
+                        <a href="{% url 'sales:detail' wish.pk %}" class="btn btn-success">I have it</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

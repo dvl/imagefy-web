@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
 
 from imagefy.api import router
@@ -14,7 +16,11 @@ urlpatterns = [
     url(r'^api/v1/auth/', include('rest_auth.urls')),
 
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^sales/', include('imagefy.sales.urls', namespace='sales')),
 
     url(r'^api/v1/docs/', include('rest_framework_swagger.urls')),
     url(r'^admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}
+    Wishe Detail
+{% endblock %}
+
+{% block headline %}
+    Wishe Detail
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        var WISH_ID = '{{ wish.pk }}';
+        var SHOPIFY_ACCESS_TOKEN = '{{ shopify_access_token }}';
+        var INTERNAL_ACCESS_TOKEN = '{{ request.user.auth_token }}';
+    </script>
+    <script src="{% static 'js/offer.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="wish-detail">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <img src="{{ wish.photo.url }}" alt="{{ wish.brief }}" class="img-thumbnail">
+                    </div>
+
+                    <table class="table">
+                        <tr>
+                            <th>Asked by:</th>
+                            <td>{{ wish.owner.get_full_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Budget:</th>
+                            <td>$ {{ wish.budget }}</td>
+                        </tr>
+                        <tr>
+                            <th>Date:</th>
+                            <td>{{ wish.created_at|date:"SHORT_DATETIME_FORMAT" }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        MAKE AN OFFER
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Select a product from your store:</label>
+                                <select class="form-control" id="id_product_list" name="product_list">
+                                </select>
+                            </div>
+                            <hr>
+                            <button type="submit" class="btn btn-primary" id="id_submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

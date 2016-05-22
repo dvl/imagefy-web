@@ -1,5 +1,14 @@
+import os
+import uuid
+
 from django.conf import settings
 from django.db import models
+
+
+def random_filename(instance, filename):
+    root, ext = os.path.splitext(filename)
+
+    return '{}{}'.format(uuid.uuid4().hex, ext)
 
 
 class Wish(models.Model):
@@ -9,6 +18,7 @@ class Wish(models.Model):
 
     photo = models.ImageField(
         verbose_name='Photo',
+        upload_to=random_filename,
     )
 
     brief = models.CharField(
@@ -53,7 +63,7 @@ class Offer(models.Model):
         to=settings.AUTH_USER_MODEL,
     )
 
-    shopify_product_id = models.IntegerField(
+    shopify_product_id = models.BigIntegerField(
         verbose_name='Shopify Product ID'
     )
 

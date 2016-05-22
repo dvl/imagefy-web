@@ -41,9 +41,9 @@ body {
 .page-head-line {
     font-weight: 900;
     padding-bottom: 20px;
-    border-bottom: 2px solid #F0677C;
+    border-bottom: 2px solid #BBDEFB;
     text-transform: uppercase;
-    color: #F0677C;
+    color: #BBDEFB;
     font-size: 20px;
     margin-bottom: 40px;
 }
@@ -60,25 +60,26 @@ body {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
 }
+
 .login-icon {
     height: 60px;
-width: 60px;
-padding: 13px;
-border-radius: 50%;
-font-size: 30px;
-margin-bottom: 20px;
-color: #fff;
-text-align: center;
-cursor:pointer;
-background-color:#F0677C;
--webkit-border-radius:50%;
-    -moz-border-radius:50%;
+    width: 60px;
+    padding: 13px;
+    border-radius: 50%;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    /*cursor:pointer;*/
+    background-color:#F0677C;
+    -webkit-border-radius:50%;
+        -moz-border-radius:50%;
 }
 /* =============================================================
    HEADER SECTION STYLES
  ============================================================ */
 header {
-    background-color: #F0677C;
+    background-color: #1976D2;
     color: #fff;
     padding: 10px;
     text-align: right;
@@ -88,6 +89,7 @@ header {
 /* =============================================================
    LOGO SECTION STYLES
  ============================================================ */
+
 .left-div {
     padding-left: 30px;
     margin-top: 40px;
@@ -157,7 +159,7 @@ header {
 /* MENU LINKS SECTION*/
 
 .menu-section {
-    background-color: #3D3D3D;
+    background-color: #212121;
 }
 
 #menu-top a {
@@ -173,20 +175,20 @@ header {
 }
 
 .menu-section .nav > li > a:hover,.menu-section .nav > li > a:focus {
-    background-color: #F0677C!important;
+    background-color: #FF5252!important;
 }
 
 .menu-section .dropdown-menu > li > a:hover,.menu-section .dropdown-menu > li > a:focus {
-    background-color: #F0677C!important;
+    background-color: #FF5252!important;
 }
 
 .navbar-inverse {
-    background-color: #C36464;
+    background-color: #2196F3;
     border-color: transparent;
 }
 
 .navbar-toggle {
-    background-color: #F0677C;
+    background-color: #FF5252;
     border: 1px solid #fff;
 }
 
@@ -200,7 +202,7 @@ footer {
     padding: 10px;
     color: #fff;
     font-size: 12px;
-    background-color: #C36464;
+    background-color: #1976D2;
 }
 
     footer a, footer a:hover {
@@ -316,3 +318,9 @@ footer {
 .btn-shopify {
     background-color: #7ab55c;
 }
+
+/* wish list */
+
+.wish-list {}
+
+.wish-list img {}
