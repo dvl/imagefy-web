@@ -1,11 +1,6 @@
 from django.contrib import admin
 
-from imagefy.wishes.models import Category, Offer, Wish
-
-
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    pass
+from imagefy.wishes.models import Offer, Wish
 
 
 class OfferInline(admin.StackedInline):

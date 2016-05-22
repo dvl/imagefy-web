@@ -3,35 +3,8 @@ from django.db import models
 
 from taggit.managers import TaggableManager
 
-from mptt.models import MPTTModel, TreeForeignKey
-
-
-class Category(MPTTModel):
-    parent = TreeForeignKey(
-        to='self',
-        null=True,
-        blank=True,
-        related_name='children',
-        db_index=True,
-    )
-
-    name = models.CharField(
-        verbose_name='Name',
-        max_length=50,
-    )
-
-    class Meta:
-        verbose_name_plural = 'Categories'
-
-    def __str__(self):
-        return '{}'.format(self.name)
-
 
 class Wish(models.Model):
-    category = models.ForeignKey(
-        to='Category',
-    )
-
     owner = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
     )

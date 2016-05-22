@@ -18,7 +18,13 @@ class WishViewSet(mixins.NestedViewSetMixin, viewsets.ModelViewSet):
 
         return qs.filter(owner=self.request.user)
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
 
 class OfferViewSet(mixins.NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = Offer.objects.all()
     serializer_class = OfferSerializer
+
+    def perform_update(self, serializer):
+        serializer.save()

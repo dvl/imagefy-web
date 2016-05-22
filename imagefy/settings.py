@@ -64,7 +64,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'debug_toolbar',
     'django_extensions',
-    'mptt',
     'storages',
     'taggit',
     'taggit_serializer',
@@ -233,8 +232,6 @@ SOCIALACCOUNT_PROVIDERS = {
     },
 }
 
-ACCOUNT_ADAPTER = 'imagefy.profile.adapters.CustomAccountAdapter'
-
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 ACCOUNT_EMAIL_REQUIRED = True
@@ -295,6 +292,9 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.FileUploadParser',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
