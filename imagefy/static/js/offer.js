@@ -26,7 +26,7 @@ $(function() {
         $.ajax({
             'async': true,
             'crossDomain': true,
-            'url': 'http://localhost:8000/api/v1/offers/',
+            'url': '/api/v1/offers/',
             'method': 'POST',
             'headers': {
                 'authorization': 'Token ' + INTERNAL_ACCESS_TOKEN,
