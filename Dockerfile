@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y \
     gettext
 
 RUN pip install -U pip
-RUN pip install "libsass==0.11.1"
 
 COPY requirements.txt /usr/src/app/
 RUN pip install --no-cache-dir -r requirements.txt
