@@ -1,10 +1,9 @@
-from django.contrib.auth import get_user_model
-
 from rest_framework import serializers
 
 from taggit_serializer.serializers import TagListSerializerField, TaggitSerializer
 
 from imagefy.wishes.models import Category, Offer, Wish
+from imagefy.profile.serializers import UserSerializer
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -13,16 +12,6 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = [
             'name',
-        ]
-
-
-class UserSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = get_user_model()
-        fields = [
-            'first_name',
-            'last_name',
         ]
 
 

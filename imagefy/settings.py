@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'taggit_serializer',
     # Project
     'imagefy.core',
+    'imagefy.profile',
     'imagefy.wishes',
 ]
 
@@ -230,6 +231,8 @@ SOCIALACCOUNT_PROVIDERS = {
     },
 }
 
+ACCOUNT_ADAPTER = 'imagefy.profile.adapters.CustomAccountAdapter'
+
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 ACCOUNT_EMAIL_REQUIRED = True
@@ -294,6 +297,13 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'imagefy.profile.serializers.UserSerializer'
 }
 
 # django-taggit
