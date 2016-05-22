@@ -14,29 +14,28 @@ $(function() {
     }).done(function(result) {
 
         $.each(result.products, function() {
-            product_select.append($("<option />").val(this.id).text(this.title));
+            product_select.append($('<option />').val(this.id).text(this.title));
         });
     });
 
     $('#id_submit').on('click', function(e) {
         var form = new FormData();
-        form.append("shopify_product_id", product_select.val().toString());
-        form.append("wish", WISH_ID);
+        form.append('shopify_product_id', product_select.val().toString());
+        form.append('wish', WISH_ID);
 
         $.ajax({
-            "async": true,
-            "crossDomain": true,
-            "url": "http://localhost:8000/api/v1/offers/",
-            "method": "POST",
-            "headers": {
-                "authorization": "Token " + INTERNAL_ACCESS_TOKEN,
-                "cache-control": "no-cache",
-                "postman-token": "70ed18a6-aaea-38ab-4210-fec5b010fc7a"
+            'async': true,
+            'crossDomain': true,
+            'url': 'http://localhost:8000/api/v1/offers/',
+            'method': 'POST',
+            'headers': {
+                'authorization': 'Token ' + INTERNAL_ACCESS_TOKEN,
+                'cache-control': 'no-cache'
             },
             'processData': false,
             'contentType': false,
-            "mimeType": "multipart/form-data",
-            "data": form,
+            'mimeType': 'multipart/form-data',
+            'data': form,
 
             success: function() {
                 alert('Your offer was submited.')
