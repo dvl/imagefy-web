@@ -19,12 +19,11 @@ $(function() {
     });
 
     $('#id_submit').on('click', function(e) {
-        console.log(product_select.val().toString());
         var form = new FormData();
-        form.append("shopify_product_id", 668209613);
+        form.append("shopify_product_id", product_select.val().toString());
         form.append("wish", WISH_ID);
 
-        var settings = {
+        $.ajax({
             "async": true,
             "crossDomain": true,
             "url": "http://localhost:8000/api/v1/offers/",
@@ -37,12 +36,19 @@ $(function() {
             'processData': false,
             'contentType': false,
             "mimeType": "multipart/form-data",
-            "data": form
-        }
+            "data": form,
 
-        $.ajax(settings).done(function (response) {
-            console.log(response);
+            success: function() {
+                alert('Your offer was submited.')
+            },
+
+            error: function() {
+                alert('We have a problem processing your request, please try again later.');
+            },
         });
+
+        product_select.prop('disabled', true);
+        $(this).prop('disabled', true);
 
         e.preventDefault();
     });
