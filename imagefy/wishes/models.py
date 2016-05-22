@@ -13,8 +13,9 @@ class Wish(models.Model):
         verbose_name='Photo',
     )
 
-    detail = models.TextField(
-        verbose_name='Detail',
+    brief = models.CharField(
+        verbose_name='Brief',
+        max_length=140,
     )
 
     created_at = models.DateTimeField(
