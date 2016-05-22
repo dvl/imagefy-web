@@ -13,7 +13,7 @@ indent_style=space
 indent_size=4
 
 [*.{html,jade,js,coffee,css,less,sass,scss,yml,md}]
-indent_size=2
+indent_size=4
 
 [Makefile]
 indent_size=4

@@ -38,6 +38,10 @@ class Wish(models.Model):
     def __str__(self):
         return '{}'.format(self.brief)
 
+    @property
+    def budget(self):
+        return self.buget
+
 
 class Offer(models.Model):
     wish = models.ForeignKey(
