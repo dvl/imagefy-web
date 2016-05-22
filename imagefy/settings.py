@@ -68,7 +68,6 @@ INSTALLED_APPS = [
     'taggit_serializer',
     # Project
     'imagefy.core',
-    'imagefy.profile',
     'imagefy.wishes',
 ]
 
