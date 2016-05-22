@@ -2,12 +2,14 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.views.generic import RedirectView
 
 from imagefy.api import router
 from imagefy.core.views import FacebookLogin, ShopifyLogin
 
 
 urlpatterns = [
+    url(r'^$', RedirectView.as_view(url='/sales/'), name='index'),
     url(r'^api/v1/', include(router.urls)),
 
     url(r'^api/v1/auth/registration/', include('rest_auth.registration.urls')),

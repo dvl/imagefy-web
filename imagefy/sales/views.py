@@ -1,5 +1,6 @@
 import requests
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.http import JsonResponse
 from django.views.generic import ListView, DetailView
@@ -7,11 +8,11 @@ from django.views.generic import ListView, DetailView
 from imagefy.wishes.models import Wish
 
 
-class WishListView(ListView):
+class WishListView(LoginRequiredMixin, ListView):
     model = Wish
 
 
-class WishDetailView(DetailView):
+class WishDetailView(LoginRequiredMixin, DetailView):
     model = Wish
     context_object_name = 'wish'
 
